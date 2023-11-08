@@ -1,0 +1,27 @@
+{
+  "name": "fastify-postgres-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "build": "rm -rf ./dist && npx tsc --project .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "18 || 20"
+  },
+  "author": "Valerii Shandin <shandin.va@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "eslint": "^8.49.0",
+    "eslint-config-metarhia": "^8.2.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
