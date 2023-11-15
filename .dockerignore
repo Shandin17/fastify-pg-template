@@ -1,0 +1,15 @@
+.git
+.github
+.gitignore
+.npmignore
+.eslintignore
+.editorconfig
+.travis.yml
+test
+node_modules
+.idea
+.vscode
+LICENSE
+README.md
+npm-debug.log
+data/

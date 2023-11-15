@@ -1,11 +1,15 @@
 {
-  "extends": ["metarhia", "plugin:prettier/recommended"],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  }
+    "extends": [
+      "metarhia",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    }
 }
