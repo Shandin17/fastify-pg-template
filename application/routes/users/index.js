@@ -6,7 +6,7 @@ export default async function users(fastify) {
     fastify.route({
         handler: helloWorld,
         method: 'GET',
-        path: '/user',
+        path: '/hello',
         schema: {
             description: 'Returns Hello World!',
             response: {
