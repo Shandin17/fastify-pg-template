@@ -1,3 +1,4 @@
-Template of the `Fastify` pure javascript project with `Postgres` and schema migrations. (No ORM)
+Template of the `Fastify` pure javascript project with `Postgres` and schema migrations
 
-> Size of the project with node_nodules is 116 MB
+
+> Code size with node_modules: 116 MB
