@@ -23,6 +23,10 @@ async function db(fastify) {
             client.release();
         }
     }
+
+    fastify.decorate('db', {
+        getUsers,
+    });
 }
 
 export default fp(db, {
