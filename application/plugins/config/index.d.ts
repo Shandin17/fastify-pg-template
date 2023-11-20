@@ -1,5 +1,4 @@
 import { FastifyPluginCallback } from 'fastify';
-import { PrismaClient } from '@prisma/client';
 
 interface Config {
     PORT: number;
