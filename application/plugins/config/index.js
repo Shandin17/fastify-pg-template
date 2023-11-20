@@ -7,11 +7,8 @@ async function config(fastify) {
     await fastify.register(Env, {
         schema: S.object()
             .prop('PORT', S.string().required())
-            .prop('DB_PORT', S.string().required())
-            .prop('DB_HOST', S.string().required())
-            .prop('DB_DATABASE', S.string().required())
-            .prop('DB_USER', S.string().required())
-            .prop('DB_PASSWORD', S.string().required())
+            .prop('DATABASE_URL', S.string().required())
+            .prop('DATABASE_LOG', S.boolean().required())
             .valueOf(),
         dotenv: {
             path: join(import.meta.url, '../../..', '.env'),

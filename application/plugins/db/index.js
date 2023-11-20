@@ -1,31 +1,18 @@
-import fastifyPostgres from '@fastify/postgres';
 import fp from 'fastify-plugin';
-import { migrate } from './migrate.js';
+import { PrismaClient } from '@prisma/client';
 
+/** @param {import('fastify').FastifyInstance} fastify */
 async function db(fastify) {
-    await fastify.register(fastifyPostgres, {
-        host: fastify.config.DB_HOST,
-        port: fastify.config.DB_PORT,
-        database: fastify.config.DB_DATABASE,
-        user: fastify.config.DB_USER,
-        password: fastify.config.DB_PASSWORD,
+    const prisma = new PrismaClient({
+        log: fastify.config.DATABASE_LOG ? ['query', 'info', 'warn', 'error'] : ['error'],
     });
-    await migrate(fastify);
-
-    async function getUsers() {
-        const client = await fastify.pg.connect();
-        try {
-            const { rows } = await client.query('SELECT * FROM users');
-            // Note: avoid doing expensive computation here, this will block releasing the client
-            return rows;
-        } finally {
-            // Release the client immediately after query resolves, or upon error
-            client.release();
-        }
-    }
+    await prisma.$connect();
+    fastify.decorate('prisma', prisma);
+    fastify.addHook('onClose', async (fastify) => {
+        await fastify.prisma.$disconnect();
+    });
 }
 
 export default fp(db, {
-    name: 'db',
     dependencies: ['config'],
 });

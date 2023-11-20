@@ -1,4 +1,1 @@
-Template of the `Fastify` pure javascript project with `Postgres` and schema migrations
-
-
-> Code size with node_modules: 116 MB
+Template of the `Fastify` pure javascript project with `Prisma` and `PostgreSQL` database.
