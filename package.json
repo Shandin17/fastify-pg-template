@@ -7,6 +7,9 @@
   "readmeFilename": "README.md",
   "types": "types/global.d.ts",
   "scripts": {
+    "migrate": "npx prisma migrate deploy",
+    "migrate:dev": "npx prisma migrate dev",
+    "generate": "npx prisma generate",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\" \"**/*.yml\" \"**/*.ts\"",

@@ -5,13 +5,23 @@ async function start() {
     const fastify = new Fastify({
         trustProxy: true,
         logger: {
-            level: 'info', // fix this in production env
+            level: process.env.LOG_LEVEL || 'warn',
         },
     });
-
     await fastify.register(App);
-    const port = process.env.PORT || 3000;
-    await fastify.listen({ port });
+    const port = process.env.PORT;
+    const host = process.env.HOST;
+    await fastify.listen({ host, port });
+    process.on('SIGINT', () => {
+        fastify.close(() => {
+            process.exit(0);
+        });
+    });
+    process.on('SIGTERM', () => {
+        fastify.close(() => {
+            process.exit(0);
+        });
+    });
 }
 
 start().catch((err) => {

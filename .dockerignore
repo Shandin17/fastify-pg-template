@@ -13,3 +13,6 @@ LICENSE
 README.md
 npm-debug.log
 data/
+.env.example
+.env
+types
