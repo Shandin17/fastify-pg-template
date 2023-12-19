@@ -1,8 +1,10 @@
 import AutoLoad from '@fastify/autoload';
 import Sensible from '@fastify/sensible';
 import UnderPressure from '@fastify/under-pressure';
-import { join } from 'desm';
-export default async function (fastify, opts) {
+import { FastifyInstance } from 'fastify';
+import { join } from 'path';
+
+export default async function (fastify: FastifyInstance) {
     await fastify.register(Sensible);
     await fastify.register(UnderPressure, {
         maxEventLoopDelay: 1000,
@@ -11,12 +13,10 @@ export default async function (fastify, opts) {
         maxEventLoopUtilization: 0.98,
     });
     await fastify.register(AutoLoad, {
-        dir: join(import.meta.url, 'plugins'),
-        options: Object.assign({}, opts),
+        dir: join(__dirname, 'plugins'),
     });
     await fastify.register(AutoLoad, {
-        dir: join(import.meta.url, 'routes'),
+        dir: join(__dirname, 'routes'),
         dirNameRoutePrefix: false,
-        options: Object.assign({}, opts),
     });
 }

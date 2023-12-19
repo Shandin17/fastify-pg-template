@@ -1,8 +1,14 @@
-import fp from 'fastify-plugin';
+import { FastifyInstance } from 'fastify';
 import { PrismaClient } from '@prisma/client';
+import fp from 'fastify-plugin';
 
-/** @param {import('fastify').FastifyInstance} fastify */
-async function db(fastify) {
+declare module 'fastify' {
+    interface FastifyInstance {
+        prisma: PrismaClient;
+    }
+}
+
+async function db(fastify: FastifyInstance) {
     const prisma = new PrismaClient({
         log: fastify.config.DATABASE_LOG ? ['query', 'info', 'warn', 'error'] : ['error'],
     });
