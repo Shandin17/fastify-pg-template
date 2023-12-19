@@ -1,3 +1,5 @@
+Switch between the different branches to choose the template that best suits your needs.
+
 # Project Name
 
 ## Table of Contents
