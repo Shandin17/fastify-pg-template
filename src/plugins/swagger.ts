@@ -2,7 +2,7 @@ import fp from 'fastify-plugin';
 import Swagger from '@fastify/swagger';
 import SwaggerUI from '@fastify/swagger-ui';
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { version } from '../../utils/version';
+import { version } from '../utils/version';
 
 type SwaggerGeneratorOptions = FastifyPluginOptions & {
     exposeRoute: boolean;

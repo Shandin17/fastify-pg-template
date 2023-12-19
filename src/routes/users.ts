@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { Type } from '@sinclair/typebox';
-import { User } from '../../schemas/user';
+import { User } from '../schemas/user';
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 
 export const autoPrefix = '/users';

@@ -1,4 +1,4 @@
-import { Config, ConfigType } from '../../schemas/config';
+import { Config, ConfigType } from '../schemas/config';
 import { FastifyInstance } from 'fastify';
 import Env from '@fastify/env';
 import { join } from 'path';

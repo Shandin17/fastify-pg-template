@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
-import { Health, HealthType } from '../../schemas/health';
-import { version } from '../../utils/version';
+import { Health, HealthType } from '../schemas/health';
+import { version } from '../utils/version';
 
 export const autoPrefix = '/health';
 
