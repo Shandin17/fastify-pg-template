@@ -1,4 +1,4 @@
-Switch between the different branches to choose the template that best suits your needs.
+_Switch between different branches to choose the template that best suits your needs._
 
 # Project Name
 
